@@ -79,7 +79,7 @@ public class Intersects {
 	public void printExpectedResults() {
 		System.out.println("List x Size : " + x.length + "\n"
 				+ "List y Size : " + y.length);
-		System.out.println("Expected Size : " + x.length + y.length);
+		System.out.println("Expected Size : " + (x.length + y.length));
 		System.out.println("Actual Size : " + this.joinedList.length);
 	}
 }
