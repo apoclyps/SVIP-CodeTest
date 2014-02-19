@@ -1,7 +1,9 @@
 package uk.co.kyleharrison.codetest;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
 import org.apache.commons.lang.ArrayUtils;
 
 public class Intersects {
@@ -9,11 +11,13 @@ public class Intersects {
 	private int[] x = { 1, 2, 3, 4, 5 };
 	private int[] y = { 2, 5 };
 	private int[] joinedList;
-	private Map<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
+	private Map<Integer, Integer> hashMap;
+	private ArrayList<Integer> duplicateList;
 
 	public Intersects() {
 		super();
 		this.hashMap = new HashMap<Integer, Integer>();
+		this.duplicateList = new ArrayList<Integer>();
 	}
 
 	public Intersects(int[] x, int[] y) {
@@ -22,6 +26,7 @@ public class Intersects {
 		this.y = y;
 		this.hashMap = new HashMap<Integer, Integer>();
 		this.setNewList(joinLists());
+		this.duplicateList = new ArrayList<Integer>();
 	}
 
 	public int[] getX() {
@@ -81,5 +86,25 @@ public class Intersects {
 				+ "List y Size : " + y.length);
 		System.out.println("Expected Size : " + (x.length + y.length));
 		System.out.println("Actual Size : " + this.joinedList.length);
+	}
+
+	public ArrayList<Integer> getDuplicateKeys() {
+		int duplicateKeysCount=0;
+		for(int key : this.hashMap.keySet()){
+			if(this.hashMap.get(key)>=2){
+				this.duplicateList.add(key);
+				duplicateKeysCount++;
+			}
+		}
+		System.out.println("Found "+duplicateKeysCount+" Duplicate Keys");
+		return this.duplicateList;
+	}
+
+	public ArrayList<Integer> getDuplicateList() {
+		return duplicateList;
+	}
+
+	public void setDuplicateList(ArrayList<Integer> duplicateList) {
+		this.duplicateList = duplicateList;
 	}
 }

@@ -10,6 +10,7 @@ public class CodingTest {
 		hm.printExpectedResults();
 		hm.printJoinedList();
 		hm.addListsToHashMap();
-		System.out.println(hm.getHashMap().keySet());
+		System.out.println("Unique Keys : " +hm.getHashMap().keySet());
+		System.out.println("Duplicate Keys : "+hm.getDuplicateKeys().toString());
 	}
 }
